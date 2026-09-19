@@ -64,7 +64,7 @@ const AboutDetail = () => {
                             <Typography
                                 variant="body1"
                                 color="text.secondary"
-                                sx={{ mb: 2, lineHeight: 1.8 }}
+                                sx={{ mb: 2, lineheight: 1.8 }}
                             >
                                 Welcome to our application. We are focused on
                                 creating a simple, reliable, and enjoyable
@@ -74,7 +74,7 @@ const AboutDetail = () => {
                             <Typography
                                 variant="body1"
                                 color="text.secondary"
-                                sx={{ mb: 3, lineHeight: 1.8 }}
+                                sx={{ mb: 3, lineheight: 1.8 }}
                             >
                                 Our goal is to bring useful features together
                                 in one place while keeping everything easy to
@@ -86,7 +86,7 @@ const AboutDetail = () => {
             </Container>
 
             {/* What We Provide */}
-            <Box sx={{ py: 8 }}>
+            <Box sx={{ py: 4 }}>
                 <Container
                     maxWidth={false}
                     sx={{ px: { xs: 2, sm: 4, md: 8 } }}
@@ -97,6 +97,105 @@ const AboutDetail = () => {
                         sx={{ mb: 4 }}
                     >
                         What We Provide
+                    </Typography>
+
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            gap: 3,
+                        }}
+                    >
+                        {[
+                            {
+                                image: '/images/image1.jpg',
+                                title: 'Quality Service',
+                                description:
+                                    'Reliable and high-quality services designed around your needs.',
+                            },
+                            {
+                                image: '/images/image2.jpg',
+                                title: 'Easy Experience',
+                                description:
+                                    'Simple, clear and easy-to-use solutions for everyone.',
+                            },
+                            {
+                                image: '/images/image3.jpg',
+                                title: 'Modern Solutions',
+                                description:
+                                    'Modern technologies and practical solutions for better experiences.',
+                            },
+                            {
+                                image: '/images/image4.jpg',
+                                title: 'Customer Support',
+                                description:
+                                    'Helpful and friendly support whenever you need it.',
+                            },
+                        ].map((item) => (
+                            <Card
+                                key={item.title}
+                                sx={{
+                                    flex: {
+                                        xs: '1 1 100%',
+                                        sm: '1 1 calc(50% - 12px)',
+                                        md: '1 1 calc(25% - 18px)',
+                                    },
+                                    borderRadius: 3,
+
+                                     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                                    '&:hover': {
+                                        transform: 'scale(1.05)',
+                                        boxShadow: 6,
+                                    },
+                                }}
+                            >
+                                <Box
+                                    component="img"
+                                    src={item.image}
+                                    alt={item.title}
+                                    sx={{
+                                        width: '100%',
+                                        height: 220,
+                                        objectFit: 'cover',
+                                        display: 'block',
+                                    }}
+                                />
+
+                                <CardContent>
+                                    <Typography
+                                        variant="h6"
+                                        fontWeight="bold"
+                                        sx={{ mb: 1 }}
+                                    >
+                                        {item.title}
+                                    </Typography>
+
+                                    <Typography
+                                        variant="body2"
+                                        color="text.secondary"
+                                        lineHeight={1.7}
+                                    >
+                                        {item.description}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </Box>
+                </Container>
+            </Box>
+
+            {/* What about us */}
+            <Box sx={{ py: 4 }}>
+                <Container
+                    maxWidth={false}
+                    sx={{ px: { xs: 2, sm: 4, md: 8 } }}
+                >
+                    <Typography
+                        variant="h4"
+                        fontWeight="bold"
+                        sx={{ mb: 4 }}
+                    >
+                        What About Us
                     </Typography>
 
                     <Box
