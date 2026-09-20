@@ -7,6 +7,7 @@ import {
     TableContainer,
     TableHead,
     TableRow,
+    Typography,
 } from '@mui/material';
 
 const products = [
@@ -36,6 +37,21 @@ const products = [
 const ReviewContent = () => {
     return (
         <Box>
+             <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    mb: 2,
+                }}
+            >
+                <Typography
+                    variant="h4"
+                    fontWeight="bold"
+                >
+                    Reviews
+                </Typography>
+            </Box>
             <TableContainer
                 component={Paper}
                 elevation={2}

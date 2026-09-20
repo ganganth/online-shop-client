@@ -8,6 +8,7 @@ import {
     TableContainer,
     TableHead,
     TableRow,
+    Typography,
 } from '@mui/material';
 
 import AddIcon from '@mui/icons-material/Add';
@@ -43,14 +44,21 @@ const ProductContent = () => {
 
     return (
         <Box>
-            {/* Add Product Button */}
             <Box
                 sx={{
                     display: 'flex',
-                    justifyContent: 'flex-end',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
                     mb: 2,
                 }}
             >
+                <Typography
+                    variant="h4"
+                    fontWeight="bold"
+                >
+                    Products
+                </Typography>
+
                 <Button
                     variant="contained"
                     startIcon={<AddIcon />}

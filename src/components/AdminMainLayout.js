@@ -13,8 +13,7 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Toolbar,
-    Typography,
+    Toolbar
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -81,6 +80,7 @@ const AdminMainLayout = ({ children }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 height: '100%',
+                backgroundColor: '#fcf8f8',
             }}
         >
             {/* Logo */}
@@ -161,7 +161,7 @@ const AdminMainLayout = ({ children }) => {
             <AppBar
                 position="fixed"
                 sx={{
-                    backgroundColor: '#ffff',
+                    backgroundColor: '#fcf8f8',
                     color: '#020202',
 
                     width: drawerOpen
@@ -186,7 +186,12 @@ const AdminMainLayout = ({ children }) => {
                         ),
                 }}
             >
-                <Toolbar>
+                <Toolbar 
+                    sx ={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                    }}
+                >
                     <IconButton
                         color="inherit"
                         edge="start"
@@ -195,16 +200,6 @@ const AdminMainLayout = ({ children }) => {
                     >
                         <MenuIcon />
                     </IconButton>
-
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            flexGrow: 1,
-                            fontWeight: 'bold',
-                        }}
-                    >
-                        RJ Admin Panel
-                    </Typography>
 
                     <Box>
                         {navItems.map((item) => (
