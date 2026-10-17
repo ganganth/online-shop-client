@@ -8,27 +8,27 @@ import {useNavigate} from 'react-router-dom';
 const galleryImages = [
     {
         image: '/images/image1.jpg',
-        title: 'Discover Beautiful Places',
+        title: 'Revitalizing tradition',
         description:
-            'Explore amazing destinations and create unforgettable memories.',
+            'Lavish every creation with charming memories, delicate artistry, and feather-light dreams.',
     },
     {
         image: '/images/image2.jpg',
-        title: 'Explore New Adventures',
+        title: 'Embroidering dreams',
         description:
-            'Experience nature, adventure and everything the world has to offer.',
+            'Inspired by the beauty of heritage and envisioned for the modern soul.',
     },
     {
         image: '/images/image3.jpg',
-        title: 'Enjoy Every Moment',
+        title: 'Creating jewels of memory',
         description:
-            'Make every journey special with experiences worth remembering.',
+            'celebrates individuality through exquisite details, graceful design, and an enduring sense of luxury.',
     },
     {
         image: '/images/image4.jpg',
-        title: 'Find Your Next Destination',
+        title: 'A single thread can hold a memory',
         description:
-            'Start your next adventure and discover something new.',
+            'Every creation is thoughtfully embroidered with authenticity, designed to become more than something you wear.',
     },
 ];
 
@@ -139,6 +139,7 @@ const HomeDetail = () => {
                         variant="contained"
                         size="large"
                         onClick={() => handleExploreMore()}
+                        sx={{ backgroundColor: '#bb8f08', color: 'rgb(11, 12, 12)' }}
                     >
                         Explore More
                     </Button>
@@ -195,14 +196,12 @@ const HomeDetail = () => {
                     variant="h4"
                     gutterBottom
                 >
-                    Welcome to the RJ.
+                    Where Tradition Becomes a Jewel…
                 </Typography>
 
                 <Typography variant="body1">
-                    Welcome to our application, where you can discover new places,
-                    explore exciting experiences, and find everything you need in one
-                    convenient place. Our goal is to provide a simple, enjoyable, and
-                    user-friendly experience for everyone.
+                    Welcome to RJ by Pubuddi Shamila, where every thread carries a story, and every detail is created with intention.
+                     Rooted in the richness of tradition and inspired by the grace of modern living, RJ creates distinctive pieces that celebrate beauty in its most authentic form. From delicate embroidery to alluring details, each creation is a meeting of heritage and imagination crafted for those who appreciate artistry that feels both timeless and uniquely their own.
                 </Typography>
             </Container>
         </Box>

@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 const Footer = () => {
     return (
@@ -39,9 +40,9 @@ const Footer = () => {
                         <Typography
                             variant="subtitle1"
                             fontWeight="bold"
-                            sx={{ mb: 1 }}
+                            sx={{ mb: 2, color: '#bb8f08', fontWeight: 'bold', fontStyle: 'italic', fontSize: '0.9rem'}}
                         >
-                            Follow Us
+                            Your story awaits, follow us..
                         </Typography>
 
                         <Stack
@@ -50,34 +51,42 @@ const Footer = () => {
                         >
                             <IconButton
                                 component="a"
-                                href="#"
+                                href="https://www.facebook.com/RJbyPubuddiShamila/"
                                 aria-label="Facebook"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                <FacebookIcon />
+                                <FacebookIcon/>
                             </IconButton>
 
                             <IconButton
                                 component="a"
-                                href="#"
+                                href="https://www.instagram.com/rjbypubuddishamila/?hl=en"
                                 aria-label="Instagram"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                <InstagramIcon />
+                                <InstagramIcon/>
                             </IconButton>
 
                             <IconButton
                                 component="a"
-                                href="#"
+                                href="https://www.linkedin.com/in/rj-by-pubuddi-shamila-b19855437/"
                                 aria-label="LinkedIn"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                <LinkedInIcon />
+                                <LinkedInIcon/>
                             </IconButton>
 
                             <IconButton
                                 component="a"
-                                href="#"
-                                aria-label="Instagram"
+                                href="https://x.com/RJbyPubudd"
+                                aria-label="Twitter"
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
-                                <InstagramIcon />
+                                <TwitterIcon/>
                             </IconButton>
                         </Stack>
                     </Box>
@@ -90,20 +99,12 @@ const Footer = () => {
                         }}
                     >
                         <Typography
-                            variant="h6"
-                            fontWeight="bold"
-                            sx={{ mb: 1 }}
-                        >
-                            RJ
-                        </Typography>
-
-                        <Typography
-                            variant="body2"
+                            variant="body1"
                             color="text.secondary"
+                            sx={{ fontStyle: 'italic', fontWeight: 'bold', fontSize: '0.9rem' }}
                         >
-                            A simple and reliable application designed to
-                            make your everyday tasks easier. Follow us for
-                            updates, news and more.
+                            A little beauty into your world by
+                            embroidering modern tradition with alluring authenticity...
                         </Typography>
                     </Box>
                 </Box>

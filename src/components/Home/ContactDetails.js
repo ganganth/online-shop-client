@@ -41,29 +41,18 @@ const ContactDetails = () => {
                             }}
                         >
                             <Typography
-                                variant="overline"
-                                color="primary"
-                                fontWeight="bold"
-                            >
-                                Contact Us
-                            </Typography>
-
-                            <Typography
-                                variant="h3"
+                                variant="h4"
                                 fontWeight="bold"
                                 sx={{ mb: 2 }}
                             >
-                                Get In Touch
+                                Begin Your RJ Journey
                             </Typography>
 
                             <Typography
                                 variant="body1"
-                                color="text.secondary"
-                                sx={{ mb: 4, lineHeight: 1.8 }}
+                                sx={{ mb: 4, lineHeight: 1.8, color: '#bb8f08' }}
                             >
-                                Have a question or need more information?
-                                Feel free to get in touch with us. We are
-                                happy to help.
+                               Let’s create something memorable… CONTACT US.
                             </Typography>
 
                             <Typography variant="h6" fontWeight="bold">
@@ -75,7 +64,7 @@ const ContactDetails = () => {
                                 color="text.secondary"
                                 sx={{ mb: 3 }}
                             >
-                                info@example.com
+                                rjbypubuddishamila@gmail.com
                             </Typography>
 
                             <Typography variant="h6" fontWeight="bold">
@@ -87,7 +76,7 @@ const ContactDetails = () => {
                                 color="text.secondary"
                                 sx={{ mb: 3 }}
                             >
-                                +94 77 123 4567
+                                +94 778549570
                             </Typography>
 
                             <Typography variant="h6" fontWeight="bold">
@@ -98,7 +87,7 @@ const ContactDetails = () => {
                                 variant="body2"
                                 color="text.secondary"
                             >
-                                123 Main Street, Colombo, Sri Lanka
+                                23, St. Servatius Rd, Matara 81000, Sri Lanka
                             </Typography>
                         </Box>
 
@@ -151,7 +140,7 @@ const ContactDetails = () => {
                                 <Button
                                     variant="contained"
                                     size="large"
-                                    sx={{ alignSelf: 'flex-start' }}
+                                    sx={{ alignSelf: 'flex-start', backgroundColor: '#bb8f08', color: 'rgb(11, 12, 12)' }}
                                 >
                                     Send Message
                                 </Button>

@@ -1,4 +1,6 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -9,6 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ShopProvider>
     <BrowserRouter>
+      <ToastContainer position='top-right' />
       <Routes>
         <Route path='/*' element={<App />} />
       </Routes>

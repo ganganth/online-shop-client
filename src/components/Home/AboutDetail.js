@@ -24,12 +24,15 @@ const AboutDetail = () => {
                     >
                         {/* Image */}
                         <Box
-                            component="img"
-                            src="/images/image1.jpg"
-                            alt="About us"
+                            component="video"
+                            src="/videos/ThemeVideo.mp4"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
                             sx={{
-                                width: { xs: '100%', md: '50%' },
-                                height: { xs: 300, md: 450 },
+                                width: { xs: '100%', md: '35%' },
+                                height: { xs: 300, md: 500 },
                                 objectFit: 'cover',
                                 display: 'block',
                             }}
@@ -38,7 +41,7 @@ const AboutDetail = () => {
                         {/* Content */}
                         <CardContent
                             sx={{
-                                width: { xs: '100%', md: '50%' },
+                                width: { xs: '100%', md: '65%' },
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'center',
@@ -46,39 +49,28 @@ const AboutDetail = () => {
                             }}
                         >
                             <Typography
-                                variant="overline"
-                                color="primary"
-                                fontWeight="bold"
-                            >
-                                About Us
-                            </Typography>
-
-                            <Typography
                                 variant="h3"
                                 fontWeight="bold"
                                 sx={{ mb: 2 }}
                             >
-                                We Make Every Experience Better
+                                Where Every Stitch Becomes a Memory….
                             </Typography>
 
                             <Typography
                                 variant="body1"
                                 color="text.secondary"
-                                sx={{ mb: 2, lineheight: 1.8 }}
+                                sx={{ mb: 2, lineHeight: 1.8, textAlign: 'justify' }}
                             >
-                                Welcome to our application. We are focused on
-                                creating a simple, reliable, and enjoyable
-                                experience for our users.
+                                RJ stands for Revitalizing Jewel a name inspired by the belief that tradition is not something to simply preserve, but something to continually rediscover, reinterpret, and bring to life.
                             </Typography>
 
                             <Typography
                                 variant="body1"
                                 color="text.secondary"
-                                sx={{ mb: 3, lineheight: 1.8 }}
+                                sx={{ mb: 3, lineHeight: 1.8, textAlign: 'justify' }}
                             >
-                                Our goal is to bring useful features together
-                                in one place while keeping everything easy to
-                                understand and simple to use.
+                                RJ by Pubuddi Shamila embraces the beauty of authentic craftsmanship while giving traditional artistry a contemporary soul. Our aesthetic is graceful yet expressive, luxurious yet intimate, traditional yet unmistakably modern. Every design is created to evoke emotion the feeling of discovering something beautiful, the memory of a special moment, and the dream of becoming something extraordinary.
+                                RJ is not simply about fashion or adornment, it is about the stories embroidered into them to Wear a Story…..
                             </Typography>
                         </CardContent>
                     </Box>
