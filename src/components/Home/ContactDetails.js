@@ -79,8 +79,8 @@ const ContactDetails = () => {
 
         try {
             await emailjs.send(
-                import.meta.env.SERVICE_ID,
-                import.meta.env.TEMPLATE_ID,
+                process.env.REACT_APP_SERVICE_ID,
+                process.env.REACT_APP_TEMPLATE_ID,
                 {
                     from_name: formData.name.trim(),
                     reply_to: formData.email.trim(),
@@ -88,7 +88,7 @@ const ContactDetails = () => {
                     message: formData.message.trim(),
                 },
                 {
-                    publicKey: import.meta.env.PUBLIC_KEY,
+                    publicKey: process.env.REACT_APP_PUBLIC_KEY,
                 }
             );
 
