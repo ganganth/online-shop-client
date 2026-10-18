@@ -111,8 +111,21 @@ const ItemDetail = ({ setIsSelectedItem, selectedItem }) => {
                             variant="body1"
                             color="text.secondary"
                             sx={{
+                                mb: 1,
+                                lineHeight: 1.7,
+                                color: '#bb8f08'
+                            }}
+                        >
+                            {selectedItem.ReferenceNo}
+                        </Typography>
+
+                        <Typography
+                            variant="body1"
+                            color="text.secondary"
+                            sx={{
                                 mb: 3,
                                 lineHeight: 1.7,
+                                textAlign: 'justify',
                             }}
                         >
                             {selectedItem.description}

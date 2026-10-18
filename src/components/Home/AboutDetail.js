@@ -109,25 +109,25 @@ const AboutDetail = () => {
                     >
                         {[
                             {
-                                image: '/images/image1.jpg',
+                                image: '/images/other/1.jpeg',
                                 title: 'The unexpected stitch',
                                 description:
                                     'Embroidery is more than decoration and it is an art of patience, precision, and emotion.',
                             },
                             {
-                                image: '/images/image2.jpg',
+                                image: '/images/other/7.jpeg',
                                 title: 'The delicate texture',
                                 description:
                                     'Intricate details are thoughtfully developed to create depth, movement, texture, and character.',
                             },
                             {
-                                image: '/images/image3.jpg',
+                                image: '/images/other/8.jpeg',
                                 title: 'The quiet shimmer',
                                 description:
                                     'Modern technologies and practical solutions for better experiences.',
                             },
                             {
-                                image: '/images/image4.jpg',
+                                image: '/images/other/5.jpeg',
                                 title: 'The finishing touches',
                                 description:
                                     'Traditional techniques meet contemporary sensibilities, allowing each piece to carry the soul of its inspiration. ',

@@ -7,25 +7,25 @@ import {useNavigate} from 'react-router-dom';
 
 const galleryImages = [
     {
-        image: '/images/image1.jpg',
+        image: '/images/other/2.jpeg',
         title: 'Revitalizing tradition',
         description:
             'Lavish every creation with charming memories, delicate artistry, and feather-light dreams.',
     },
     {
-        image: '/images/image2.jpg',
+        image: '/images/other/9.jpeg',
         title: 'Embroidering dreams',
         description:
             'Inspired by the beauty of heritage and envisioned for the modern soul.',
     },
     {
-        image: '/images/image3.jpg',
+        image: '/images/other/4.jpeg',
         title: 'Creating jewels of memory',
         description:
             'celebrates individuality through exquisite details, graceful design, and an enduring sense of luxury.',
     },
     {
-        image: '/images/image4.jpg',
+        image: '/images/other/6.jpeg',
         title: 'A single thread can hold a memory',
         description:
             'Every creation is thoughtfully embroidered with authenticity, designed to become more than something you wear.',
