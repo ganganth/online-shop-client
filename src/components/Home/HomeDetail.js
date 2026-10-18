@@ -199,7 +199,7 @@ const HomeDetail = () => {
                     Where Tradition Becomes a Jewel…
                 </Typography>
 
-                <Typography variant="body1">
+                <Typography variant="body1" sx={{textAlign: 'justify'}}>
                     Welcome to RJ by Pubuddi Shamila, where every thread carries a story, and every detail is created with intention.
                      Rooted in the richness of tradition and inspired by the grace of modern living, RJ creates distinctive pieces that celebrate beauty in its most authentic form. From delicate embroidery to alluring details, each creation is a meeting of heritage and imagination crafted for those who appreciate artistry that feels both timeless and uniquely their own.
                 </Typography>

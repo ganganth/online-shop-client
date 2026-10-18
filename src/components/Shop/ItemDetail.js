@@ -9,40 +9,27 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-const ItemDetail = ({ setSelectedItem }) => {
-
-    const item = {
-        id: 1,
-        images: [
-            '/images/image1.jpg',
-            '/images/image2.jpg',
-            '/images/image3.jpg',
-            '/images/image4.jpg'
-        ],
-        title: 'Premium Package',
-        description: 'A complete package with everything you need.',
-        price: '$49.99',
-    };
+const ItemDetail = ({ setIsSelectedItem, selectedItem }) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handlePrevious = () => {
         setCurrentIndex((prev) =>
-            prev === 0 ? item.images.length - 1 : prev - 1
+            prev === 0 ? selectedItem.images.length - 1 : prev - 1
         );
     };
 
     const handleNext = () => {
         setCurrentIndex((prev) =>
-            prev === item.images.length - 1 ? 0 : prev + 1
+            prev === selectedItem.images.length - 1 ? 0 : prev + 1
         );
     };
 
     const handleBack = () => {
-        setSelectedItem(false);
+        setIsSelectedItem(false);
     };
 
-    const currentImage = item.images[currentIndex];
+    const currentImage = selectedItem.images[currentIndex];
 
     return (
         <Box
@@ -64,6 +51,7 @@ const ItemDetail = ({ setSelectedItem }) => {
                     variant="outlined"
                     startIcon={<ArrowBackIcon />}
                     onClick={handleBack}
+                    sx={{ color: '#bb8f08', borderColor: '#bb8f08' }}
                 >
                     Back
                 </Button>
@@ -92,10 +80,10 @@ const ItemDetail = ({ setSelectedItem }) => {
                     <Box
                         component="img"
                         src={currentImage}
-                        alt={item.title}
+                        alt={selectedItem.title}
                         sx={{
                             width: { xs: '100%', md: '60%' },
-                            height: { xs: 300, md: 400 },
+                            height: { xs: 500, md: 700 },
                             objectFit: 'cover',
                             display: 'block',
                         }}
@@ -116,7 +104,7 @@ const ItemDetail = ({ setSelectedItem }) => {
                             fontWeight="bold"
                             sx={{ mb: 2 }}
                         >
-                            {item.title}
+                            {selectedItem.title}
                         </Typography>
 
                         <Typography
@@ -127,16 +115,16 @@ const ItemDetail = ({ setSelectedItem }) => {
                                 lineHeight: 1.7,
                             }}
                         >
-                            {item.description}
+                            {selectedItem.description}
                         </Typography>
 
                         <Typography
-                            variant="h4"
+                            variant="h7"
                             color="primary"
                             fontWeight="bold"
-                            sx={{ mb: 3 }}
+                            sx={{ mb: 3, color: 'black' }}
                         >
-                            {item.price}
+                            {selectedItem.price}
                         </Typography>
                     </CardContent>
                 </Box>
@@ -159,7 +147,7 @@ const ItemDetail = ({ setSelectedItem }) => {
                     </IconButton>
 
                     <Box sx={{ display: 'flex', gap: 1 }}>
-                        {item.images.map((_, index) => (
+                        {selectedItem.images.map((_, index) => (
                             <Box
                                 key={index}
                                 onClick={() => setCurrentIndex(index)}
@@ -169,7 +157,7 @@ const ItemDetail = ({ setSelectedItem }) => {
                                     borderRadius: 5,
                                     backgroundColor:
                                         index === currentIndex
-                                            ? 'primary.main'
+                                            ? '#bb8f08'
                                             : 'grey.400',
                                     cursor: 'pointer',
                                     transition: 'all 0.3s ease',

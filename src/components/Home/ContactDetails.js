@@ -1,3 +1,6 @@
+
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -5,10 +8,111 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Alert from '@mui/material/Alert';
+
+const initialFormData = {
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+};
 
 const ContactDetails = () => {
+    const [formData, setFormData] = useState(initialFormData);
+    const [errors, setErrors] = useState({});
+    const [isSending, setIsSending] = useState(false);
+    const [status, setStatus] = useState(null);
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+
+        setErrors((prev) => ({
+            ...prev,
+            [name]: '',
+        }));
+
+        setStatus(null);
+    };
+
+    const validateForm = () => {
+        const newErrors = {};
+
+        if (!formData.name.trim()) {
+            newErrors.name = 'Name is required';
+        }
+
+        if (!formData.email.trim()) {
+            newErrors.email = 'Email is required';
+        } else if (
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+        ) {
+            newErrors.email = 'Enter a valid email address';
+        }
+
+        if (!formData.subject.trim()) {
+            newErrors.subject = 'Subject is required';
+        }
+
+        if (!formData.message.trim()) {
+            newErrors.message = 'Message is required';
+        }
+
+        setErrors(newErrors);
+
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if (!validateForm()) {
+            return;
+        }
+
+        setIsSending(true);
+        setStatus(null);
+
+        try {
+            await emailjs.send(
+                import.meta.env.SERVICE_ID,
+                import.meta.env.TEMPLATE_ID,
+                {
+                    from_name: formData.name.trim(),
+                    reply_to: formData.email.trim(),
+                    subject: formData.subject.trim(),
+                    message: formData.message.trim(),
+                },
+                {
+                    publicKey: import.meta.env.PUBLIC_KEY,
+                }
+            );
+
+            setStatus({
+                type: 'success',
+                message: 'Your message has been sent successfully!',
+            });
+
+            setFormData(initialFormData);
+            setErrors({});
+        } catch (error) {
+            console.error('Email sending failed:', error);
+
+            setStatus({
+                type: 'error',
+                message: 'Failed to send your message. Please try again.',
+            });
+        } finally {
+            setIsSending(false);
+        }
+    };
+
     return (
-        <Box sx={{ display: 'block' }}>
+        <Box>
             <Container
                 maxWidth={false}
                 sx={{
@@ -16,13 +120,7 @@ const ContactDetails = () => {
                     py: { xs: 5, md: 10 },
                 }}
             >
-                <Card
-                    sx={{
-                        width: '100%',
-                        borderRadius: 3,
-                        boxShadow: 3,
-                    }}
-                >
+                <Card sx={{ width: '100%', borderRadius: 3, boxShadow: 3 }}>
                     <Box
                         sx={{
                             display: 'flex',
@@ -33,6 +131,7 @@ const ContactDetails = () => {
                         <Box
                             sx={{
                                 width: { xs: '100%', md: '40%' },
+                                boxSizing: 'border-box',
                                 backgroundColor: '#f5f5f5',
                                 p: { xs: 3, md: 6 },
                                 display: 'flex',
@@ -40,11 +139,7 @@ const ContactDetails = () => {
                                 justifyContent: 'center',
                             }}
                         >
-                            <Typography
-                                variant="h4"
-                                fontWeight="bold"
-                                sx={{ mb: 2 }}
-                            >
+                            <Typography variant="h4" fontWeight="bold" sx={{ mb: 2 }}>
                                 Begin Your RJ Journey
                             </Typography>
 
@@ -52,62 +147,53 @@ const ContactDetails = () => {
                                 variant="body1"
                                 sx={{ mb: 4, lineHeight: 1.8, color: '#bb8f08' }}
                             >
-                               Let’s create something memorable… CONTACT US.
+                                Let’s create something memorable… CONTACT US.
                             </Typography>
 
                             <Typography variant="h6" fontWeight="bold">
                                 Email
                             </Typography>
-
-                            <Typography
-                                variant="body2"
-                                color="text.secondary"
-                                sx={{ mb: 3 }}
-                            >
+                            <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
                                 rjbypubuddishamila@gmail.com
                             </Typography>
 
                             <Typography variant="h6" fontWeight="bold">
-                                Phone
+                                WhatsApp
                             </Typography>
-
-                            <Typography
-                                variant="body2"
-                                color="text.secondary"
-                                sx={{ mb: 3 }}
-                            >
+                            <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
                                 +94 778549570
                             </Typography>
 
                             <Typography variant="h6" fontWeight="bold">
                                 Address
                             </Typography>
-
-                            <Typography
-                                variant="body2"
-                                color="text.secondary"
-                            >
+                            <Typography variant="body2" color="text.secondary">
                                 23, St. Servatius Rd, Matara 81000, Sri Lanka
                             </Typography>
                         </Box>
 
-                        {/* Contact Form */}
+                        {/* React Contact Form */}
                         <CardContent
                             sx={{
                                 width: { xs: '100%', md: '60%' },
+                                boxSizing: 'border-box',
                                 p: { xs: 3, md: 6 },
                             }}
                         >
-                            <Typography
-                                variant="h5"
-                                fontWeight="bold"
-                                sx={{ mb: 3 }}
-                            >
+                            <Typography variant="h5" fontWeight="bold" sx={{ mb: 3 }}>
                                 Send Us a Message
                             </Typography>
 
+                            {status && (
+                                <Alert severity={status.type} sx={{ mb: 3 }}>
+                                    {status.message}
+                                </Alert>
+                            )}
+
                             <Box
                                 component="form"
+                                onSubmit={handleSubmit}
+                                noValidate
                                 sx={{
                                     display: 'flex',
                                     flexDirection: 'column',
@@ -115,34 +201,67 @@ const ContactDetails = () => {
                                 }}
                             >
                                 <TextField
+                                    name="name"
                                     label="Name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    error={Boolean(errors.name)}
+                                    helperText={errors.name}
+                                    required
                                     fullWidth
                                 />
 
                                 <TextField
+                                    name="email"
                                     label="Email"
                                     type="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    error={Boolean(errors.email)}
+                                    helperText={errors.email}
+                                    required
                                     fullWidth
                                 />
 
                                 <TextField
+                                    name="subject"
                                     label="Subject"
+                                    value={formData.subject}
+                                    onChange={handleChange}
+                                    error={Boolean(errors.subject)}
+                                    helperText={errors.subject}
+                                    required
                                     fullWidth
                                 />
 
                                 <TextField
+                                    name="message"
                                     label="Message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    error={Boolean(errors.message)}
+                                    helperText={errors.message}
                                     multiline
                                     rows={5}
+                                    required
                                     fullWidth
                                 />
 
                                 <Button
+                                    type="submit"
                                     variant="contained"
                                     size="large"
-                                    sx={{ alignSelf: 'flex-start', backgroundColor: '#bb8f08', color: 'rgb(11, 12, 12)' }}
+                                    disabled={isSending}
+                                    sx={{
+                                        alignSelf: 'flex-start',
+                                        backgroundColor: '#bb8f08',
+                                        color: '#0b0c0c',
+                                        '&:hover': {
+                                            backgroundColor: '#a77f07',
+                                        },
+                                    }}
                                 >
-                                    Send Message
+                                    {isSending ? 'Sending...' : 'Send Message'}
                                 </Button>
                             </Box>
                         </CardContent>
@@ -154,4 +273,3 @@ const ContactDetails = () => {
 };
 
 export default ContactDetails;
-

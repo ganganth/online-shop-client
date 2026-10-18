@@ -10,12 +10,13 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
 const Shop = () => {
-    const [selectedItem, setSelectedItem] = useState(false);
+    const [isSelectedItem, setIsSelectedItem] = useState(false);
     const [showReview, setShowReview] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setShowReview(true);
+            setShowReview(false);
         }, 5000);
 
         return () => clearTimeout(timer);
@@ -23,10 +24,10 @@ const Shop = () => {
 
     return (
         <MainLayout window={() => window}>
-            {selectedItem ? (
-                <ItemDetail setSelectedItem={setSelectedItem} />
+            {isSelectedItem ? (
+                <ItemDetail setIsSelectedItem={setIsSelectedItem} selectedItem={selectedItem} />
             ) : (
-                <ShopDetail setSelectedItem={setSelectedItem} />
+                <ShopDetail setIsSelectedItem={setIsSelectedItem} setSelectedItem={setSelectedItem} />
             )}
 
             <Dialog

@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
-const ItemCard = ({setSelectedItem, item}) => {
+const ItemCard = ({setSelectedItem, item, setIsSelectedItem}) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -26,10 +26,10 @@ const ItemCard = ({setSelectedItem, item}) => {
 
     const currentIMage = item.images[currentIndex];
 
-    const handleSetSelectedItem = (itemId) => {
-        setSelectedItem(true);
-        // to do get the details
-    }
+    const handleSetSelectedItem = () => {
+        setIsSelectedItem(true);
+        setSelectedItem(item);
+    };
 
     return (
         <Box
@@ -78,7 +78,7 @@ const ItemCard = ({setSelectedItem, item}) => {
                             justifyContent: 'space-between',
                             alignItems: 'center',
                             px: 2,
-                            py: 1.5,
+                            py: 1,
                         }}
                     >
                         <IconButton
@@ -99,7 +99,7 @@ const ItemCard = ({setSelectedItem, item}) => {
                                         borderRadius: 5,
                                         backgroundColor:
                                             index === currentIndex
-                                                ? 'primary.main'
+                                                ? '#bb8f08'
                                                 : 'grey.400',
                                         cursor: 'pointer',
                                         transition: 'all 0.3s ease',
@@ -120,22 +120,14 @@ const ItemCard = ({setSelectedItem, item}) => {
                     <CardContent
                         sx={{
                             width: '100%',
-                            p: { xs: 3, md: 5 },
+                            p: { xs: 2, md: 3 },
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'center',
                         }}
                     >
                         <Typography
-                            variant="overline"
-                            color="primary"
-                            fontWeight="bold"
-                        >
-                            Featured Item
-                        </Typography>
-
-                        <Typography
-                            variant="h4"
+                            variant="h5"
                             fontWeight="bold"
                             sx={{ mb: 2 }}
                         >
@@ -146,18 +138,19 @@ const ItemCard = ({setSelectedItem, item}) => {
                             variant="body1"
                             color="text.secondary"
                             sx={{
-                                mb: 3,
+                                mb: 1,
                                 lineHeight: 1.7,
+                                color: '#bb8f08'
                             }}
                         >
-                            {item.description}
+                            {item.ReferenceNo}
                         </Typography>
 
                         <Typography
-                            variant="h4"
+                            variant="h7"
                             color="primary"
                             fontWeight="bold"
-                            sx={{ mb: 3 }}
+                            sx={{ mb: 3, color: 'black' }}
                         >
                             {item.price}
                         </Typography>
@@ -165,8 +158,8 @@ const ItemCard = ({setSelectedItem, item}) => {
                         <Button
                             variant="contained"
                             size="large"
-                            sx={{ alignSelf: 'flex-start', backgroundColor: '#bb8f08', color: 'rgb(11, 12, 12)' }}
-                            onClick={() => handleSetSelectedItem(item.id)}
+                            sx={{ alignSelf: 'flex-start', backgroundColor: '#bb8f08', color: 'rgb(11, 12, 12)', fontWeight: 'semi-bold' }}
+                            onClick={() => handleSetSelectedItem()}
                         >
                             View Details
                         </Button>
